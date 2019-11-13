@@ -1,7 +1,0 @@
-C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\Keithley2281_Handler_Version1\bin\Debug\Keithley2281_Handler_Version1.dll
-C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\Keithley2281_Handler_Version1\bin\Debug\Keithley2281_Handler_Version1.pdb
-C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\Keithley2281_Handler_Version1\obj\Debug\Keithley2281_Handler_Version1.csproj.ResolveComReference.cache
-C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\Keithley2281_Handler_Version1\obj\Debug\Keithley2281_Handler_Version1.csproj.CoreCompileInputs.cache
-C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\Keithley2281_Handler_Version1\obj\Debug\Keithley2281_Handler_Version1.dll
-C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\Keithley2281_Handler_Version1\obj\Debug\Keithley2281_Handler_Version1.pdb
-C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\Keithley2281_Handler_Version1\obj\Debug\Keithley2281_Handler_Version1.csprojAssemblyReference.cache
