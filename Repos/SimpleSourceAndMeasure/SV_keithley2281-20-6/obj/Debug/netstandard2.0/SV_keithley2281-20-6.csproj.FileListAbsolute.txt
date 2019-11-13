@@ -1,0 +1,9 @@
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SV_keithley2281-20-6\bin\Debug\netstandard2.0\SV_keithley2281-20-6.deps.json
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SV_keithley2281-20-6\bin\Debug\netstandard2.0\SV_keithley2281-20-6.dll
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SV_keithley2281-20-6\bin\Debug\netstandard2.0\SV_keithley2281-20-6.pdb
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SV_keithley2281-20-6\obj\Debug\netstandard2.0\SV_keithley2281-20-6.csprojAssemblyReference.cache
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SV_keithley2281-20-6\obj\Debug\netstandard2.0\SV_keithley2281-20-6.csproj.CoreCompileInputs.cache
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SV_keithley2281-20-6\obj\Debug\netstandard2.0\SV_keithley2281-20-6.AssemblyInfoInputs.cache
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SV_keithley2281-20-6\obj\Debug\netstandard2.0\SV_keithley2281-20-6.AssemblyInfo.cs
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SV_keithley2281-20-6\obj\Debug\netstandard2.0\SV_keithley2281-20-6.dll
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SV_keithley2281-20-6\obj\Debug\netstandard2.0\SV_keithley2281-20-6.pdb

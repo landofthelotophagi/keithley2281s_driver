@@ -1,0 +1,23 @@
+Von: Bergmann, Artjom [mailto:artjom.bergmann@tektronix.com] 
+Gesendet: Donnerstag, 22. März 2018 10:57
+An: Goutas Theodor
+Cc: Muno, Ursula
+Betreff: RE: Tektronix Keithley Instruments, Ihr Intreresse asn unserem Power Supply Model 2281S-20-6 [ Z1 UNGESICHERT ]
+
+Dear Mr. Goutas,
+
+there are battery models available on our forum:
+https://forum.tek.com/viewforum.php?f=66
+
+To create custom models, you can enter the values manually in CSV-file. Or you can alternatively discharge your particular battery with Model 2450 Sourcemeter and record the values during discharge.
+https://forum.tek.com/viewtopic.php?f=66&t=140141&sid=1c8df45fa54d0d4a8be6a8a2c3d3dce9
+
+I hope this helps.
+Best regards,
+Artjom Bergmann, M.Sc.
+Tech. Support 
+E/ artjom.bergmann@tektronix.com
+
+T/ +41 52675 3741 	
+de.tek.com
+

@@ -1,0 +1,1986 @@
+<doc>
+	<assembly>
+		<name>KeithleyInstruments.Keithley2280.Interop</name>
+	</assembly>
+	<members>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280">
+			<summary />
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputChannel">
+			<summary />
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280DigitalIO">
+			<summary>Keithley2280DigitalIO class.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280">
+			<summary>IKeithley2280 interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Initialize(System.String,System.Boolean,System.Boolean,System.String)">
+			<summary>Opens the I/O session to the instrument.  Driver methods and properties that access the instrument are only accessible after Initialize is called.  Initialize optionally performs a Reset and queries the instrument to validate the instrument model.</summary>
+			<param name="ResourceName">An IVI logical name or an instrument specific string that identifies the address of the instrument, such as a VISA resource descriptor string.</param>
+			<param name="IdQuery">Specifies whether to verify the ID of the instrument.</param>
+			<param name="Reset">Specifies whether to reset the instrument.</param>
+			<param name="OptionString">The user can use the OptionsString parameter to specify the initial values of certain IVI inherent attributes for the session. The format of an assignment in the OptionsString parameteris "Name=Value", where Name is one of: RangeCheck, QuerytInstrStatus, Cache, Simulate, RecordCoercions, InterchangeCheck,or DriverSetup. Value is either true or false except for DriverSetup. If the Options String parameter contains an assignment for the Driver Setup attribute, the Initialize function assumes that everything following "DriverSetup=" is part of the assignment.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Close">
+			<summary>Closes the I/O session to the instrument.  Driver methods and properties that access the instrument are not accessible after Close is called.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.DriverOperation">
+			<summary>Pointer to the IIviDriverOperation interface</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Identity">
+			<summary>Pointer to the IIviDriverIdentity interface</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Utility">
+			<summary>Pointer to the IIviDriverUtility interface</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Initialized">
+			<summary>Initialized is True between a successful call to the Initialize method and a successful call to the Close method, and False at all other times.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Outputs">
+			<summary>Pointer to the IKeithley2280Outputs interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Trigger">
+			<summary>Pointer to the class-compliant IIviDCPwrTrigger interface</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Calibration">
+			<summary>Pointer to the IKeithley2280Calibration interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Display">
+			<summary>Pointer to the IKeithley2280Display interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Channel">
+			<summary>Pointer to the IKeithley2280Channel interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Status">
+			<summary>Pointer to the IKeithley2280Status interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.System">
+			<summary>Pointer to the IKeithley2280System interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Measurement">
+			<summary>Pointer to the IKeithley2280Measurement interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.DigitalIOs">
+			<summary>Pointer to the IKeithley2280DigitalIOs interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280.Battery">
+			<summary>Pointer to the IKeithley2280Battery interface.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel">
+			<summary />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.ConfigureCurrentLimit(KeithleyInstruments.Keithley2280.Interop.Keithley2280CurrentLimitBehaviorEnum,System.Double)">
+			<summary>method Configure Current Limit specifies the output current limit value and the behavior of the power supply when the output current is greater than or equal to that value.</summary>
+			<param name="Behavior">Specifies the behavior of the power supply when the  output current is greater than or equal to the value of the Limit parameter.   The driver uses this value to set the Current Limit Behavior attribute. See the attribute description for more details.</param>
+			<param name="Limit">Specifies the power supply's output current limit. The driver uses this value to set the Current Limit attribute. NOTE: For MODEL 2280S-32-6 and MODEL 2280D-32-6 current range is 0.0 - 6.1A; MODEL 2280S-60-3 current range is 0.0 - 3.3A.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.ConfigureRange(KeithleyInstruments.Keithley2280.Interop.Keithley2280RangeTypeEnum,System.Double)">
+			<summary>method Configure Range specifies the output's range, either current or voltage.</summary>
+			<param name="RangeType">The kind of range to be configured, either Current or Voltage.</param>
+			<param name="Range">The range in which the power supply operates.  This value is coerced to the closest value the instrument supports that is greater than or equal to the value specified.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.ConfigureOVP(System.Boolean,System.Double)">
+			<summary>method Configure OVP specifies the over-voltage limit and the behavior of the power supply when the output voltage is greater than or equal to the limit.</summary>
+			<param name="Enabled">Specifies the behavior of the power supply when the ouptut voltage is greater than or equal to the value of the Limit parameter.   This value sets the OVP Enabled property.</param>
+			<param name="Limit">Specifies the power supply's over-voltage protection limit. This value sets the OVP Limit property.  NOTE: For MODEL 2280S-32-6 and MODEL 2280D-32-6 OVP is 0.5 - 33V; MODEL 2280S-60-3 OVP is 0 - 61V.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.Measure(KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementTypeEnum)">
+			<summary>Takes a measurement on the output signal and returns the measured value.</summary>
+			<param name="MeasurementType">The type of measurement to take, either Current or Volatge</param>
+			<returns>The measured value.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.QueryCurrentLimitMax(System.Double)">
+			<summary>method Query Current Limit Max returns the maximum programmable current limit that the power supply accepts for a particular voltage level on an output. NOTE: For MODEL 2280S-32-6 current range is 0.0 - 6.1A; MODEL 2280S-60-3 current range is 0.0 - 3.3A.</summary>
+			<param name="VoltageLevel">The voltage level for which to determine the maximum programmable current limit.</param>
+			<returns>The max current limit for the specified voltage.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.QueryState(KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputStateEnum)">
+			<summary>method Query State returns whether the power supply is in a particular output state.</summary>
+			<param name="OutputState">The output state for which to query. Allowed values are those defined in the IviDCPwrOutputStateEnum enumeration.</param>
+			<returns>True if the power supply is currently in the state specified with the OutputState parameter, and False if it is not.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.QueryVoltageLevelMax(System.Double)">
+			<summary>method Query Voltage Level Max returns the maximum programmable voltage level that the power supply accepts for a particular current limit on an output. NOTE: For MODEL 2280S-32-6 voltage range is 0 - 32V; MODEL 2280S-60-3 voltage range is 0 - 60V.</summary>
+			<param name="CurrentLimit">The current limit for which to determine the maximum programmable voltage level.</param>
+			<returns>The maximum voltage level for the specified current.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.ResetOutputProtection">
+			<summary>method Reset Output Protection resets the power supply's output protection after an over-voltage or over-current condition occurs.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.ConfigureOCP(System.Boolean,System.Double)">
+			<summary>Configure OCP specifies the over-current limit and the behavior of the power supply when the output current is greater than or equal to the limit.</summary>
+			<param name="Enabled">Specifies the behavior of the power supply when the ouptut current is greater than or equal to the value of the Limit parameter.   This value sets the OCP Enabled property.</param>
+			<param name="Limit">Specifies the power supply's over-current protection limit. This value sets the OCP Limit property.  NOTE: For MODEL 2280S-32-6 and MODEL 2280D-32-6 OCP is 0.1 - 6.1A; MODEL 2280S-60-3 OCP is 0.1 - 3.3A.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.Enabled">
+			<summary>property Enabled specifies whether the signal the power supply produces appears at the output connector.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.TriggerSource">
+			<summary>property Source specifies the trigger source. NOTE: BUS is not supported for trigger source.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.TriggeredCurrentLimit">
+			<summary>property Triggered Current Limit specifies the value to which the power supply sets the current limit after a trigger event occurs.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.TriggeredVoltageLevel">
+			<summary>property Triggerd Voltage Level specifies the value to  which the power supply sets the voltage level after a trigger event occurs.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.VoltageLevel">
+			<summary>property Voltage Level specifies the voltage level the DC power supply attempts to generate. The units are Volts. NOTE: For MODEL 2280S-32-6 voltage range is 0 - 32V; MODEL 2280S-60-3 voltage range is 0 - 60V.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.CurrentLimit">
+			<summary>propety Current Limit specifies the output current limit. The units are Amps.  NOTE: For MODEL 2280S-32-6 current range is 0.0 - 6.1A; MODEL 2280S-60-3 current range is 0.0 - 3.3A.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.CurrentLimitBehavior">
+			<summary>property Current Limit Behavior specifies the behavior of the power supply when the output current is equal to or greater than the value of the Current Limit property.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.OVPLimit">
+			<summary>property OVP Limit specifies the voltage the power supply allows. The units are Volts. NOTE: For MODEL 2280S-32-6 OVP is 0.5 - 33V; MODEL 2280S-60-3 OVP is 0 - 61V.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.OVPEnabled">
+			<summary>property OVP Enabled specifies whether the power supply provides over-voltage protection. If this property is set to True, the power supply disables the output when the output voltage is greater than or equal to the OVP Limit.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.OCPLimit">
+			<summary>Sets or queries the over-current protection(OCP) limit. NOTE: For MODEL 2280S-32-6 OCP is 0.1 - 6.1A; MODEL 2280S-60-3 OCP is 0.1 - 3.3A.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.SourceDelay">
+			<summary>Sets or queries the source delay. Units are in seconds. Delay time must be either zero or a positive value. NOTE: Range is 0 - 99sec. Default is 0.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.SourceDelayEnabled">
+			<summary>Sets or queries the source delay state. ON or 1: Enable source delay; OFF or 0: Disable source delay. Default is ON.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.VoltageLimit">
+			<summary>Sets or queries the voltage limit. NOTE: For MODEL 2280S-32-6 voltage range is 0 - 32V; MODEL 2280S-60-3 voltage range is 0 - 60V.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.VoltageSlewFalling">
+			<summary>Sets or queries the falling rate of the V-Source. NOTE: Range is 10-1000.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.VoltageSlewRising">
+			<summary>Sets or queries the rising rate of the V-Source. NOTE: Range is 10-1000.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.List">
+			<summary>Pointer to the IKeithley2280OutputChannelList interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannel.OCPEnabled">
+			<summary>Specifies the behavior of the power supply when the ouptut current is greater than or equal to the value of the Limit parameter.   This value sets the OCP Enabled property.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs">
+			<summary />
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.Count">
+			<summary>Returns the number of OutputChannels.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.Item(System.String)">
+			<summary>Pointer to the IKeithley2280OutputChannel interface.</summary>
+			<param name="Name">The name of a OutputChannel. It may be either a name returned by the Name property or a name mapped to a particular repeated capability in the session in the configuration store.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.get_Item(System.String)">
+			<summary>Pointer to the IKeithley2280OutputChannel interface.</summary>
+			<param name="Name">The name of a OutputChannel. It may be either a name returned by the Name property or a name mapped to a particular repeated capability in the session in the configuration store.</param>
+			<returns>Pointer to the IKeithley2280OutputChannel interface.</returns>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.Name(System.Int32)">
+			<summary>Returns the OutputChannel name for a given index.</summary>
+			<param name="Index">One based index into the collection of OutputChannels.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.get_Name(System.Int32)">
+			<summary>Returns the OutputChannel name for a given index.</summary>
+			<param name="Index">One based index into the collection of OutputChannels.</param>
+			<returns>Returns the OutputChannel name for a given index.</returns>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.DelayEnabled">
+			<summary>Sets or queries the state of the output delay.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.OnDelay(System.String)">
+			<summary>Sets or queries the output turn-on sequence delay time.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.get_OnDelay(System.String)">
+			<summary>Sets or queries the output turn-on sequence delay time.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the output turn-on sequence delay time.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.set_OnDelay(System.String,System.Double)">
+			<summary>Sets or queries the output turn-on sequence delay time.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the output turn-on sequence delay time.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.OffDelay(System.String)">
+			<summary>Sets or queries the output turn-off sequence delay time.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.get_OffDelay(System.String)">
+			<summary>Sets or queries the output turn-off sequence delay time.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the output turn-off sequence delay time.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Outputs.set_OffDelay(System.String,System.Double)">
+			<summary>Sets or queries the output turn-off sequence delay time.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the output turn-off sequence delay time.</param>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Trigger">
+			<summary>IviDCPwr class-compliant IIviDCPwrTrigger interface</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Trigger.Abort">
+			<summary>method Abort returns the power supply to the ignore triggers state if the power supply is currently waiting for a trigger to change the output signal.  If the power supply is not waiting for a trigger, this method does nothing.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Trigger.Initiate(System.String)">
+			<summary>method Initiate causes the power supply to wait for a trigger if the power supply is not currently waiting for a trigger. If the power supply is already waiting for a trigger, this method does nothing</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Trigger.SendSoftwareTrigger">
+			<summary>method Send Software Trigger supplies a trigger signal when the trigger source is set to Software Trigger</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Trigger.WaitToComplete(System.Int32)">
+			<summary>It waits for all the pending operations to be executed, till the specified time.</summary>
+			<param name="Timeout">Specifies the timeout value.</param>
+			<returns />
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Trigger.Count(System.String)">
+			<summary>Sets or queries the trigger count.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Trigger.get_Count(System.String)">
+			<summary>Sets or queries the trigger count.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the trigger count.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Trigger.set_Count(System.String,System.Int32)">
+			<summary>Sets or queries the trigger count.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the trigger count.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Trigger.Arm">
+			<summary>Pointer to the IKeithley2280TriggerArm interface.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration">
+			<summary>IKeithley2280Calibration interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.Enable(System.String)">
+			<summary>Enables the calibration procedure.</summary>
+			<param name="Password">Is a string with double or single quotes. Default is 'KI002280'.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.Cancel">
+			<summary>Cancels the calibration procedures and drops the new constants.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.Disable(System.String)">
+			<summary>Disables the calibration procedure.</summary>
+			<param name="Password">Is a string with double or single quotes. Default is 'KI002280'.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.Save">
+			<summary>Save calibration constants after the calibration procedure.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.QueryConstants">
+			<summary>Query calibration constants data.</summary>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.PerformStep1(System.String,System.Double,System.Int32)">
+			<summary>Start step1.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Voltage">Enter the voltage reading from external DMM.</param>
+			<param name="TimeOut">Wait until step1 finished.</param>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.PerformStep2(System.String,System.Double,System.Int32)">
+			<summary>Start step2.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Voltage">Enter the voltage reading from external DMM.</param>
+			<param name="TimeOut">Wait until step2 finished.</param>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.PerformStep3(System.String,System.Double,System.Double,System.Int32)">
+			<summary>Start step3.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Voltage">Enter the voltage reading from external DMM.</param>
+			<param name="Resistance">Enter the resistance reading from external DMM.</param>
+			<param name="TimeOut">Wait until step3 finished.</param>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.PerformStep4(System.String,System.Double,System.Double,System.Int32)">
+			<summary>Start step4.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Voltage">Enter the voltage reading from external DMM.</param>
+			<param name="Resistance">Enter the resistance reading from external DMM.</param>
+			<param name="TimeOut">Wait until step4 finished.</param>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.PerformStep5(System.String,System.Double,System.Double,System.Int32)">
+			<summary>Start step5.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Voltage">Enter the voltage reading from external DMM.</param>
+			<param name="Resistance">Enter the resistance reading from external DMM.</param>
+			<param name="TimeOut">Wait until step5 finished.</param>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.PerformStep6(System.String,System.Int32)">
+			<summary>Start step6.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="TimeOut">Wait until step6 finished.</param>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.PerformStep7(System.String,System.Double,System.Double,System.Int32)">
+			<summary>Start step7.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Voltage">Enter the voltage reading from external DMM.</param>
+			<param name="Resistance">Enter the resistance reading from external DMM.</param>
+			<param name="TimeOut">Wait until step7 finished.</param>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Calibration.PerformStep8(System.String,System.Int32)">
+			<summary>Start step8.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="TimeOut">Wait until step8 finished.</param>
+			<returns />
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Display">
+			<summary>IKeithley2280Display interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Display.ClearText(System.String)">
+			<summary>Removes user defined text message from OUTPUT view screen.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Display.SetText(System.String,System.String)">
+			<summary>Defines the text that is displayed on the front-panel OUTPUT view screen.</summary>
+			<param name="TextMessage">User text message.</param>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Display.Brightness">
+			<summary>Sets or queries the brightness value of LCD display. Range from 0-100.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Display.CurrentScreen">
+			<summary>Set front-panel screen to displayed.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Display.Resolution(System.String)">
+			<summary>Set or queries the number of digits that are displayed for measurements on the front panel. NOTE: This operation sets the resolution for all measurement functions(Concurrent, Current and Voltage)</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Display.get_Resolution(System.String)">
+			<summary>Set or queries the number of digits that are displayed for measurements on the front panel. NOTE: This operation sets the resolution for all measurement functions(Concurrent, Current and Voltage)</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Set or queries the number of digits that are displayed for measurements on the front panel. NOTE: This operation sets the resolution for all measurement functions(Concurrent, Current and Voltage)</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Display.set_Resolution(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280ResolutionEnum)">
+			<summary>Set or queries the number of digits that are displayed for measurements on the front panel. NOTE: This operation sets the resolution for all measurement functions(Concurrent, Current and Voltage)</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Set or queries the number of digits that are displayed for measurements on the front panel. NOTE: This operation sets the resolution for all measurement functions(Concurrent, Current and Voltage)</param>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Channel">
+			<summary>IKeithley2280Channel interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Channel.Name(System.Int32)">
+			<summary>Returns the channel name for a given index.</summary>
+			<param name="Index">One based index into the collection of channels.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Channel.get_Name(System.Int32)">
+			<summary>Returns the channel name for a given index.</summary>
+			<param name="Index">One based index into the collection of channels.</param>
+			<returns>Returns the channel name for a given index.</returns>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Channel.Count">
+			<summary>Returns the number of channels. MODEL 2280S-32-6 and MODEL 2280S-60-3 have signle channel.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status">
+			<summary>IKeithley2280Status interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.ReadStatusByte">
+			<summary>Return the status byte value.</summary>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.WaitForSRQ(System.Int32)">
+			<summary>Clears the Status registers and enables service request events, sends OPC and waits for the SRQ for the specified time.</summary>
+			<param name="Timeout">Specifies the timeout value to get SRQ.</param>
+			<returns />
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentMeasureEnableRegister">
+			<summary>Sets or queries the contents of the Measurement Instrument Event Enable Register of the status model.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentMeasureEventRegister">
+			<summary>Queries the value of Measurement Instrument Event Register and clears the register.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentMeasureSummaryConditionRegister">
+			<summary>Queries the value in the Measurement Instrument summary condition Register and clears it.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentMeasureSummaryEnableRegister">
+			<summary>Sets or queries the contents of the Measurement Instrument Summary Enable Register(MISER) of the status model.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentMeasureSummaryEventRegister">
+			<summary>Queries the value of Measurement Instrument summary Event Register and clears the register.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentOperationEnableRegister">
+			<summary>Sets or queries the contents of the Operation Instrument Enable Register of the status model.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentOperationEventRegister">
+			<summary>Queries the value of Operation Instrument Event Register and clears the register.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentOperationSummaryConditionRegister">
+			<summary>Queries the Operation Instrument summary condition Register of the status model.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentOperationSummaryEnableRegister">
+			<summary>Sets or queries the contents of the Operation Instrument Summary Enable Register of the status model.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentOperationSummaryEventRegister">
+			<summary>Queries the value of Operation Instrument summary Event Register and clears the register.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentQuestEnableRegister">
+			<summary>Sets or queries the contents of the Questionable Instrument Event Enable Register of the status model.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentQuestEventRegister">
+			<summary>Queries the value of Questionable Instrument Event Register and clears the register.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentQuestSummaryConditionRegister">
+			<summary>Queries the value in the Questionable Instrument summary condition Register and clears it.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentQuestSummaryEnableRegister">
+			<summary>Sets or queries the contents of the Questionable Instrument Summary Event Enable Register of the status model.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.InstrumentQuestSummaryEventRegister">
+			<summary>Queries the value of Questionable Instrument summary Event Register and clears the register.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.MeasurementEnableRegister">
+			<summary>Sets or queries the Measurement Event Enable Register of the status model.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.MeasurementEventRegister">
+			<summary>Queries the value of Measurement Event Register and clears the register.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.OperationEnableRegister">
+			<summary>Sets or queries the contents of the Operation Event Enable Register of the status model.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.OperationEventRegister">
+			<summary>Queries the value of Operation Event Register and clears the register.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.QuestEnableRegister">
+			<summary>Sets or Queries the contents of the Questionable Event Enable Register of the status model.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Status.QuestEventRegister">
+			<summary>Queries the value of Questionable Event Register and clears the register.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280TriggerArm">
+			<summary>IKeithley2280TriggerArm interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280TriggerArm.Count(System.String)">
+			<summary>Sets or queries the trigger count size on ARM layer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280TriggerArm.get_Count(System.String)">
+			<summary>Sets or queries the trigger count size on ARM layer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the trigger count size on ARM layer.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280TriggerArm.set_Count(System.String,System.Int32)">
+			<summary>Sets or queries the trigger count size on ARM layer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the trigger count size on ARM layer.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280TriggerArm.Source(System.String)">
+			<summary>Sets or queries the Arm Trigger source.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280TriggerArm.get_Source(System.String)">
+			<summary>Sets or queries the Arm Trigger source.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the Arm Trigger source.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280TriggerArm.set_Source(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280TriggerSourceEnum)">
+			<summary>Sets or queries the Arm Trigger source.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the Arm Trigger source.</param>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System">
+			<summary>IKeithley2280System interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.Date">
+			<summary>Sets or queries the calendar date of the instrument. For setting Date give comma separated string which contain 'year','month','day'.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.Time">
+			<summary>Sets or queries the absolute time of the instrument. For setting Time give comma separated string which contain 'hours','minutes','seconds'.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.Error">
+			<summary>Pointer to the IKeithley2280SystemError interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.LAN">
+			<summary>Pointer to the IKeithley2280SystemLAN interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.FrontPanel">
+			<summary>Pointer to the IKeithley2280SystemFrontPanel interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.Beeper">
+			<summary>Pointer to the IKeithley2280SystemBeeper interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.DirectIO">
+			<summary>Pointer to the IKeithley2280DirectIO interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.Session">
+			<summary>An integer that identifies the session in the underlying I/O that implements the I/O connection to the device.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.IOTimeout">
+			<summary>The I/O timeout.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.OperationMode(System.String)">
+			<summary>Sets or queries the instrument to work in one of its functions. NOTE: Once you switch to another function, the data in the buffer will be cleared. If you send a syntactically correct command but not supported in the corresponding work mode, error 700, “Command not permitted in this work mode” occurs.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.get_OperationMode(System.String)">
+			<summary>Sets or queries the instrument to work in one of its functions. NOTE: Once you switch to another function, the data in the buffer will be cleared. If you send a syntactically correct command but not supported in the corresponding work mode, error 700, “Command not permitted in this work mode” occurs.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the instrument to work in one of its functions. NOTE: Once you switch to another function, the data in the buffer will be cleared. If you send a syntactically correct command but not supported in the corresponding work mode, error 700, “Command not permitted in this work mode” occurs.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280System.set_OperationMode(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280SystemOperationModeEnum)">
+			<summary>Sets or queries the instrument to work in one of its functions. NOTE: Once you switch to another function, the data in the buffer will be cleared. If you send a syntactically correct command but not supported in the corresponding work mode, error 700, “Command not permitted in this work mode” occurs.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the instrument to work in one of its functions. NOTE: Once you switch to another function, the data in the buffer will be cleared. If you send a syntactically correct command but not supported in the corresponding work mode, error 700, “Command not permitted in this work mode” occurs.</param>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemError">
+			<summary>IKeithley2280SystemError interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemError.SaveEventLogToUSB(System.String)">
+			<summary>Saves the event log to a file on a USB flash drive. The extension .csv is automatically added to the file name.</summary>
+			<param name="FileName">A string that holds the name of the file to be saved.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemError.Count">
+			<summary>Queries the number of errors in error queue.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemLAN">
+			<summary>IKeithley2280SystemLAN interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemLAN.ConfigureAuto">
+			<summary>Automatically configured LAN settings (default).</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemLAN.ConfigureManual(System.String,System.String,System.String)">
+			<summary>Manually configured LAN settings.</summary>
+			<param name="Ipaddress">LAN IP address; must be a string specifying the IP address in dotted decimal notation; required if the mode is set to manual (default "0.0.0.0").</param>
+			<param name="NetMask">The LAN subnet mask; must be a string in dotted decimal notation (default "255.255.255.0").</param>
+			<param name="GateWay">The LAN default gateway; must be a string in dotted decimal notation (default "0.0.0.0").</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemLAN.MACAddress">
+			<summary>Returns MAC address of the instrument.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList">
+			<summary>IKeithley2280OutputChannelList interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.AppendToList(System.Int32,System.Double[]@,System.Double[]@,System.Double[]@)">
+			<summary>Appends several more points to the specified list.</summary>
+			<param name="ListNumber">Specifies the list number, in range of 1-9.</param>
+			<param name="VoltagePoints">Specifies the list of voltage points to append the selected list.</param>
+			<param name="CurrentPoints">Specifies the list of current points to append the selected list.</param>
+			<param name="DwellTimePoints">Specifies the list of dwell time points to append the selected list.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.ConfigureList(System.Int32,System.Double[]@,System.Double[]@,System.Double[]@)">
+			<summary>Configures the settings for each list step in specified list.</summary>
+			<param name="ListNumber">Specifies the list number, in range of 1-9.</param>
+			<param name="VoltagePoints">Specifies the list of voltage points to configure the selected list.</param>
+			<param name="CurrentPoints">Specifies the list of current points to configure the selected list.</param>
+			<param name="DwellTimePoints">Specifies the list of dwell time points to configure the selected list.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.QueryListLength(System.Int32)">
+			<summary>Returns the number of points (steps) in the specified list.</summary>
+			<param name="ListNumber">Specifies the list number, in range of 1-9.</param>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.RecalListFromUSB(System.Int32,System.String)">
+			<summary>This method imports a list from USB flash drive to the instrument and save it in the specified location. If a list already exists for the specified list number, the new list overwrites the existing list.</summary>
+			<param name="ListNumber">Specifies the list number, in range of 1-9.</param>
+			<param name="FileName">Specifies the name of the list to import. It is a string consists of up to 8 characters.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.SaveListToUSB(System.Int32,System.String)">
+			<summary>Saves the specified list to USB flash drive.</summary>
+			<param name="ListNumber">Specifies the list number, in range of 1-9.</param>
+			<param name="FileName">Specifies a name for the list when you save it to USB flash drive. It is a string consists of up to 8 characters.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.SaveList(System.Int32)">
+			<summary>Saves the specified list to internal memory.</summary>
+			<param name="ListNumber">Specifies the list number, in range of 1-9.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.QueryList(System.Int32,System.Double[]@,System.Double[]@,System.Double[]@)">
+			<summary>Returns the specified list values.</summary>
+			<param name="ListNumber">Specifies the list number, in range of 1-9.</param>
+			<param name="VoltagePoints">Return the list of voltage points from the selected list.</param>
+			<param name="CurrentPoints">Return the list of current points from the selected list.</param>
+			<param name="DwellTimePoints">Return the list of dwell time points from the selected list.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.ConfigureActiveList(System.Int32)">
+			<summary>Recalls the specified list and prepares to execute it.</summary>
+			<param name="ListNumber">Specifies the list number, in range of 1-9.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.ActiveList">
+			<summary>Queries which list is active.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.MComplete">
+			<summary>Sets or queries when Meter Complete pulse is asserted with list enabled.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.StartAtZero">
+			<summary>Sets or queries the Sequence list starts at zero or not.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.EndAtZero">
+			<summary>Sets or queries the Sequence list ends at zero.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280OutputChannelList.Enabled">
+			<summary>Sets or queries the list mode.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement">
+			<summary>IKeithley2280Measurement interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.ConfigureApertureTime(System.String,System.Double,KeithleyInstruments.Keithley2280.Interop.Keithley2280ApertureTimeUnitsEnum)">
+			<summary>Configures the aperture time.  NOTE: The number of power-line cycles for each measurement: 0.002 to 12 for 50 Hz; 0.002 to 15 for 60 Hz. Each PLC for 60 Hz is 16.67 ms (1/60) and each PLC for 50 Hz is 20 ms (1/50).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="ApertureTime">Aperture time.</param>
+			<param name="ApertureUnits">Aperture units.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.MeasureMultiple(System.String,System.Double[]@,System.Double[]@,System.Int32)">
+			<summary>Does operation on all channels and returns the readings as arrays in the order; the channels appeared in the list.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="SourceMeasurements">Returns Source measurements.</param>
+			<param name="ReadingMeasurements">Returns Reading measurements.</param>
+			<param name="Timeout">Specifies the timeout value for this operation.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.ConfigureMeasureFunction(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementFunctionEnum,KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementRangeTypeEnum,System.Double)">
+			<summary>Configures the measurement function and range to that function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Function">Measurement function.</param>
+			<param name="AutoOrManualRange">Range type(Auto or Manual). NOTE: Auto range is not supported for Voltage function.</param>
+			<param name="Range">Range value.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.AutoZeroEnabled(System.String)">
+			<summary>Sets or queries the auto zero state.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.get_AutoZeroEnabled(System.String)">
+			<summary>Sets or queries the auto zero state.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the auto zero state.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.set_AutoZeroEnabled(System.String,System.Boolean)">
+			<summary>Sets or queries the auto zero state.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the auto zero state.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.MeasureFunction(System.String)">
+			<summary>Sets or queries presently active function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.get_MeasureFunction(System.String)">
+			<summary>Sets or queries presently active function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries presently active function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.set_MeasureFunction(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementFunctionEnum)">
+			<summary>Sets or queries presently active function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries presently active function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.PowerLineFrequency">
+			<summary>Query the power line frequency.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.SampleCount(System.String)">
+			<summary>Sets or queries the number of readings which will be taken with single Trigger layer event.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.get_SampleCount(System.String)">
+			<summary>Sets or queries the number of readings which will be taken with single Trigger layer event.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the number of readings which will be taken with single Trigger layer event.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.set_SampleCount(System.String,System.Int32)">
+			<summary>Sets or queries the number of readings which will be taken with single Trigger layer event.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the number of readings which will be taken with single Trigger layer event.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.Buffer">
+			<summary>Pointer to the IKeithley2280MeasurementBuffer interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.Filter">
+			<summary>Pointer to the IKeithley2280MeasurementFilter interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.Math">
+			<summary>Pointer to the IKeithley2280MeasurementMath interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.ApertureTime(System.String)">
+			<summary>Sets or queries the aperture time in PLC(Power Line Cycles). NOTE: Same aperture time is set to all functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.get_ApertureTime(System.String)">
+			<summary>Sets or queries the aperture time in PLC(Power Line Cycles). NOTE: Same aperture time is set to all functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the aperture time in PLC(Power Line Cycles). NOTE: Same aperture time is set to all functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.set_ApertureTime(System.String,System.Double)">
+			<summary>Sets or queries the aperture time in PLC(Power Line Cycles). NOTE: Same aperture time is set to all functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the aperture time in PLC(Power Line Cycles). NOTE: Same aperture time is set to all functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Measurement.Relative">
+			<summary>Pointer to the IKeithley2280MeasurementRelative interface.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer">
+			<summary>IKeithley2280MeasurementBuffer interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.Clear(System.String)">
+			<summary>Clear the readings in buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.FetchDataInteger(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum,System.Int32[]@)">
+			<summary>Fetches data from the buffer of Integer format.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="BufferDataType">Specifies the buffer element. NOTE: This function only support "Reading Number" buffer element. This is the only buffer element in integer format.</param>
+			<param name="Values">Returns an array of integer values.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.FetchDataDouble(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum,System.Double[]@)">
+			<summary>Fetches data from the buffer of double format.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="BufferDataType">Specifies the buffer element. Buffer elements supported in this function are: Reading, Source and Relative timestamp.</param>
+			<param name="Values">Returns an array of double values.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.FetchDataString(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum,System.String@)">
+			<summary>Fetches data from the buffer of String format.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="BufferDataType">Specifies the buffer element. Buffer elements support in this function are: Mode, Date, Time and TSTamp(date and time).</param>
+			<param name="Values">Returns a string of values.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.ReadStatistics(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFunctionEnum,System.Double@,System.Double@,System.Double@,System.Double@,System.Double@)">
+			<summary>Return the statistics from the buffer for the selected measurement function (current or voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Function">Measurement buffer function.</param>
+			<param name="Min">Minimum value.</param>
+			<param name="Max">Maximum value.</param>
+			<param name="Mean">Average.</param>
+			<param name="PeakToPeak">Peak to peak.</param>
+			<param name="StandardDeviation">Standard deviation.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.SaveBufferToUSB(System.String,System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferTimeFormatEnum,System.Int32,System.Int32)">
+			<summary>Saves data from the specified reading buffer to a USB flash drive.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="FileName">A string that indicates the name of the file on the USB flash drive in which to save the reading buffer.</param>
+			<param name="TimeFormat">Defines how date and time information from the buffer is saved in the file on the USB flash drive.</param>
+			<param name="Start">The starting point in the buffer to start saving data.</param>
+			<param name="End">The ending point in the buffer to stop saving data.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.FetchMultiple(System.String,System.Double[]@,System.Double[]@,KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputStateEnum[]@)">
+			<summary>Fetches the reading, source and mode values from the buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Sources">Return Sources values.</param>
+			<param name="Readings">Return Readings values.</param>
+			<param name="Modes">Return Modes values.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.BufferSize(System.String)">
+			<summary>Specify the size of the buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.get_BufferSize(System.String)">
+			<summary>Specify the size of the buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Specify the size of the buffer.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.set_BufferSize(System.String,System.Int32)">
+			<summary>Specify the size of the buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Specify the size of the buffer.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.AutoClearEnabled(System.String)">
+			<summary>Sets or queries the auto clear state.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.get_AutoClearEnabled(System.String)">
+			<summary>Sets or queries the auto clear state.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the auto clear state.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.set_AutoClearEnabled(System.String,System.Boolean)">
+			<summary>Sets or queries the auto clear state.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the auto clear state.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.ReadingCount(System.String)">
+			<summary>Query how many readings are stored in the specified buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.get_ReadingCount(System.String)">
+			<summary>Query how many readings are stored in the specified buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Query how many readings are stored in the specified buffer.</returns>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.Feed(System.String)">
+			<summary>Sets or queries the source of readings to be placed in the specified buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.get_Feed(System.String)">
+			<summary>Sets or queries the source of readings to be placed in the specified buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the source of readings to be placed in the specified buffer.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.set_Feed(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFeedEnum)">
+			<summary>Sets or queries the source of readings to be placed in the specified buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the source of readings to be placed in the specified buffer.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.FeedControl(System.String)">
+			<summary>Sets or queries the buffer control for the specified buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.get_FeedControl(System.String)">
+			<summary>Sets or queries the buffer control for the specified buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the buffer control for the specified buffer.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementBuffer.set_FeedControl(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFeedControlEnum)">
+			<summary>Sets or queries the buffer control for the specified buffer.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the buffer control for the specified buffer.</param>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilter">
+			<summary>IKeithley2280MeasurementFilter interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilter.Averaging">
+			<summary>Pointer to the IKeithley2280MeasurementFilterAveraging interface.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging">
+			<summary>IKeithley2280MeasurementFilterAveraging interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.ConfigureAveragingFilter(System.String,System.Int32,System.Boolean,KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureAverageFilterTypeEnum,System.Double)">
+			<summary>Configures average filter settings. NOTE: This method set same configuration settings for all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Count">Averaging filter count.</param>
+			<param name="Enabled">Averaging filter state.</param>
+			<param name="Type">Averaging filter type.</param>
+			<param name="Window">Averaging filter window size.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.Enabled(System.String)">
+			<summary>Sets or queries the average filter enable state. NOTE: It enables/disables all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.get_Enabled(System.String)">
+			<summary>Sets or queries the average filter enable state. NOTE: It enables/disables all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the average filter enable state. NOTE: It enables/disables all measurement functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.set_Enabled(System.String,System.Boolean)">
+			<summary>Sets or queries the average filter enable state. NOTE: It enables/disables all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the average filter enable state. NOTE: It enables/disables all measurement functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.Count(System.String)">
+			<summary>Sets or queries the average filter count. NOTE: This operation set same count value to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.get_Count(System.String)">
+			<summary>Sets or queries the average filter count. NOTE: This operation set same count value to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the average filter count. NOTE: This operation set same count value to all measurement functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.set_Count(System.String,System.Int32)">
+			<summary>Sets or queries the average filter count. NOTE: This operation set same count value to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the average filter count. NOTE: This operation set same count value to all measurement functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.Window(System.String)">
+			<summary>Sets or queries the average filter window size. NOTE: This operation set same window size to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.get_Window(System.String)">
+			<summary>Sets or queries the average filter window size. NOTE: This operation set same window size to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the average filter window size. NOTE: This operation set same window size to all measurement functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.set_Window(System.String,System.Double)">
+			<summary>Sets or queries the average filter window size. NOTE: This operation set same window size to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the average filter window size. NOTE: This operation set same window size to all measurement functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.Type(System.String)">
+			<summary>Sets or queries the average filter type. NOTE: This operation set same filter type to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.get_Type(System.String)">
+			<summary>Sets or queries the average filter type. NOTE: This operation set same filter type to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the average filter type. NOTE: This operation set same filter type to all measurement functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementFilterAveraging.set_Type(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureAverageFilterTypeEnum)">
+			<summary>Sets or queries the average filter type. NOTE: This operation set same filter type to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the average filter type. NOTE: This operation set same filter type to all measurement functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath">
+			<summary>IKeithley2280MeasurementMath interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.Configure(System.String,System.Boolean,KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureMathFunctionEnum)">
+			<summary>Configures the math settings. NOTE: It configure the settings for all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Enabled">Math operation state.</param>
+			<param name="MathFunction">Measurement math function.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.ConfigureMXB(System.String,System.Double,System.Double)">
+			<summary>Configures the scale factor and offset for y=mx+b math operation. NOTE: It configure the settings for all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="MFactor">The scale factor for y=mx+b math operation.</param>
+			<param name="BOffset">The offset for the y=mx+b math operation.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.Enabled(System.String)">
+			<summary>Sets or queries the math operation state. NOTE: It enables/disables all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.get_Enabled(System.String)">
+			<summary>Sets or queries the math operation state. NOTE: It enables/disables all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the math operation state. NOTE: It enables/disables all measurement functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.set_Enabled(System.String,System.Boolean)">
+			<summary>Sets or queries the math operation state. NOTE: It enables/disables all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the math operation state. NOTE: It enables/disables all measurement functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.Function(System.String)">
+			<summary>Sets or queries the math operation performed on measurement function. NOTE: This operation set same math operation to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.get_Function(System.String)">
+			<summary>Sets or queries the math operation performed on measurement function. NOTE: This operation set same math operation to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the math operation performed on measurement function. NOTE: This operation set same math operation to all measurement functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.set_Function(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureMathFunctionEnum)">
+			<summary>Sets or queries the math operation performed on measurement function. NOTE: This operation set same math operation to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the math operation performed on measurement function. NOTE: This operation set same math operation to all measurement functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.MFactor(System.String)">
+			<summary>Sets or queries the scale factor for y=mx+b math operation. NOTE: This operation set same scale factor to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.get_MFactor(System.String)">
+			<summary>Sets or queries the scale factor for y=mx+b math operation. NOTE: This operation set same scale factor to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the scale factor for y=mx+b math operation. NOTE: This operation set same scale factor to all measurement functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.set_MFactor(System.String,System.Double)">
+			<summary>Sets or queries the scale factor for y=mx+b math operation. NOTE: This operation set same scale factor to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the scale factor for y=mx+b math operation. NOTE: This operation set same scale factor to all measurement functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.BOffset(System.String)">
+			<summary>Sets or queries the offset for the y=mx+b math operation. NOTE: This operation set same offset value to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.get_BOffset(System.String)">
+			<summary>Sets or queries the offset for the y=mx+b math operation. NOTE: This operation set same offset value to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the offset for the y=mx+b math operation. NOTE: This operation set same offset value to all measurement functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.set_BOffset(System.String,System.Double)">
+			<summary>Sets or queries the offset for the y=mx+b math operation. NOTE: This operation set same offset value to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the offset for the y=mx+b math operation. NOTE: This operation set same offset value to all measurement functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.Units(System.String)">
+			<summary>Sets or queries the units suffix name for the y=mx+b math operation. NOTE: This operation set same units suffix name to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.get_Units(System.String)">
+			<summary>Sets or queries the units suffix name for the y=mx+b math operation. NOTE: This operation set same units suffix name to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the units suffix name for the y=mx+b math operation. NOTE: This operation set same units suffix name to all measurement functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementMath.set_Units(System.String,System.String)">
+			<summary>Sets or queries the units suffix name for the y=mx+b math operation. NOTE: This operation set same units suffix name to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the units suffix name for the y=mx+b math operation. NOTE: This operation set same units suffix name to all measurement functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemFrontPanel">
+			<summary>IKeithley2280SystemFrontPanel interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemFrontPanel.ConfigureLock">
+			<summary>To lock out front panel controls.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemFrontPanel.KeyClickEnabled">
+			<summary>Sets or queries the keyclick status.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemBeeper">
+			<summary>IKeithley2280SystemBeeper interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemBeeper.Enabled">
+			<summary>Sets or queries the beeper state for error message.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementRelative">
+			<summary>IKeithley2280MeasurementRelative interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementRelative.Configure(System.String,System.Boolean,System.Double)">
+			<summary>Configures the relative enabled and reference settings. NOTE: It configure the settings for all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Enabled">The reference state of measure function.</param>
+			<param name="Reference">The relative value performed on measurement function.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementRelative.Acquire(System.String)">
+			<summary>Triggers a reading and uses the reading value as rel value.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementRelative.Enabled(System.String)">
+			<summary>Sets or queries the reference state of measure function. NOTE: It enables/disables reference state for all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementRelative.get_Enabled(System.String)">
+			<summary>Sets or queries the reference state of measure function. NOTE: It enables/disables reference state for all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the reference state of measure function. NOTE: It enables/disables reference state for all measurement functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementRelative.set_Enabled(System.String,System.Boolean)">
+			<summary>Sets or queries the reference state of measure function. NOTE: It enables/disables reference state for all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the reference state of measure function. NOTE: It enables/disables reference state for all measurement functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementRelative.Reference(System.String)">
+			<summary>Sets or queries the relative value performed on measurement function. NOTE: This operation set same relative value to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementRelative.get_Reference(System.String)">
+			<summary>Sets or queries the relative value performed on measurement function. NOTE: This operation set same relative value to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<returns>Sets or queries the relative value performed on measurement function. NOTE: This operation set same relative value to all measurement functions(Concurrent, Current and Voltage).</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280MeasurementRelative.set_Reference(System.String,System.Double)">
+			<summary>Sets or queries the relative value performed on measurement function. NOTE: This operation set same relative value to all measurement functions(Concurrent, Current and Voltage).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier. MODEL 2280S-32-6 and MODEL 2280S-60-3 have single channel.</param>
+			<param name="Val">Sets or queries the relative value performed on measurement function. NOTE: This operation set same relative value to all measurement functions(Concurrent, Current and Voltage).</param>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280DigitalIOs">
+			<summary>IKeithley2280DigitalIOs interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280DigitalIOs.Count">
+			<summary>Returns the number of digital IO lines.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280DigitalIOs.Name(System.Int32)">
+			<summary>Returns the digitalio name for a given index. Index range is 1 - 6.</summary>
+			<param name="Index">One based index into the collection of digitalios.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280DigitalIOs.get_Name(System.Int32)">
+			<summary>Returns the digitalio name for a given index. Index range is 1 - 6.</summary>
+			<param name="Index">One based index into the collection of digitalios.</param>
+			<returns>Returns the digitalio name for a given index. Index range is 1 - 6.</returns>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280DigitalIOs.Item(System.String)">
+			<summary>Pointer to the IKeithley2280DigitalIO interface.</summary>
+			<param name="Name">The name of a digitalio. It may be either a name returned by the Name property or a name mapped to a particular repeated capability in the session in the configuration store.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280DigitalIOs.get_Item(System.String)">
+			<summary>Pointer to the IKeithley2280DigitalIO interface.</summary>
+			<param name="Name">The name of a digitalio. It may be either a name returned by the Name property or a name mapped to a particular repeated capability in the session in the configuration store.</param>
+			<returns>Pointer to the IKeithley2280DigitalIO interface.</returns>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280DigitalIO">
+			<summary>IKeithley2280DigitalIO interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280DigitalIO.FetchData">
+			<summary>Queries the manual input result if the specified pin is set to 'MINPut'.</summary>
+			<returns />
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280DigitalIO.Function">
+			<summary>Sets or queries the digital IO line function.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemDirectIO">
+			<summary>IKeithley2280DirectIO interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemDirectIO.ReadBytes(System.Int32)">
+			<summary>Reads a complete response from the instrument.</summary>
+			<param name="Size">Specify the read buffer size.</param>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemDirectIO.WriteBytes(System.Byte[]@)">
+			<summary>Write an array of bytes to the device.</summary>
+			<param name="Buffer">The array of bytes to be written to the device.</param>
+			<returns />
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemDirectIO.WriteString(System.String)">
+			<summary>Write a string to the device.</summary>
+			<param name="Data">The string to be written to the device.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280SystemDirectIO.ReadString">
+			<summary>Reads a complete response from the instrument and returns it as a string.</summary>
+			<returns />
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Battery">
+			<summary>IKeithley2280Battery interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Battery.ResetOutputProtection(System.String)">
+			<summary>Clears the overvoltage, overcurrent, overtemperature, or reverse fault status.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Battery.OutputState(System.String)">
+			<summary>Sets or queries the state of the instrument output.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Battery.get_OutputState(System.String)">
+			<summary>Sets or queries the state of the instrument output.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the state of the instrument output.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Battery.set_OutputState(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryOutputStateEnum)">
+			<summary>Sets or queries the state of the instrument output.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the state of the instrument output.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Battery.OutputProtectionTripped(System.String)">
+			<summary>Queries whether over-protection has been tripped both in the battery simulator and battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Battery.get_OutputProtectionTripped(System.String)">
+			<summary>Queries whether over-protection has been tripped both in the battery simulator and battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Queries whether over-protection has been tripped both in the battery simulator and battery test function.</returns>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Battery.Simulator">
+			<summary>Pointer to the IKeithley2280BatterySimulator interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Battery.Test">
+			<summary>Pointer to the IKeithley2280BatteryTest interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280Battery.Model">
+			<summary>Pointer to the IKeithley2280BatteryModel interface.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator">
+			<summary>IKeithley2280BatterySimulator interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.ConfigureSettings(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatterySimulationModeEnum,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryConfigureSimulatorValidParamTypeEnum,System.Double,System.Double,System.Double,System.Double)">
+			<summary>Configures the battery simulator settings.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="SimulationMode">Specify the simulation mode(Dynamic/Static).</param>
+			<param name="SetParameter">Specify the parameter type(SOC/Vov) to set the value for the battery simulator function.</param>
+			<param name="SetParameterValue">Specify the Voc/SOC value for the battery simulator function based on selected SetParameter.</param>
+			<param name="VOCFull">Threshold Voc value for the charging to stop in the battery simulator function.</param>
+			<param name="VOCEmpty">Threshold Voc value for the discharging to stop in the battery simulator function.</param>
+			<param name="ResistanceOffset">Resistance offset value in the battery simulation function to cancel out the resistance deviation caused by the wire connecting the battery and device under test.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.SimulationMode(System.String)">
+			<summary>Sets or queries the simulation mode in the battery simulation function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_SimulationMode(System.String)">
+			<summary>Sets or queries the simulation mode in the battery simulation function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the simulation mode in the battery simulation function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.set_SimulationMode(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatterySimulationModeEnum)">
+			<summary>Sets or queries the simulation mode in the battery simulation function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the simulation mode in the battery simulation function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.CapacityLimit(System.String)">
+			<summary>Sets or queries the maximum capacity value of the battery in the battery simulation function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_CapacityLimit(System.String)">
+			<summary>Sets or queries the maximum capacity value of the battery in the battery simulation function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the maximum capacity value of the battery in the battery simulation function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.set_CapacityLimit(System.String,System.Double)">
+			<summary>Sets or queries the maximum capacity value of the battery in the battery simulation function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the maximum capacity value of the battery in the battery simulation function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.ResistanceOffset(System.String)">
+			<summary>Sets and queries the resistance offset value in the battery simulation function. NOTE: This value cannot be changed when the simulation is in progress. If you modify this value without pausing the simulation, error 704, “Not permitted while battery model is running" occurs.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_ResistanceOffset(System.String)">
+			<summary>Sets and queries the resistance offset value in the battery simulation function. NOTE: This value cannot be changed when the simulation is in progress. If you modify this value without pausing the simulation, error 704, “Not permitted while battery model is running" occurs.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets and queries the resistance offset value in the battery simulation function. NOTE: This value cannot be changed when the simulation is in progress. If you modify this value without pausing the simulation, error 704, “Not permitted while battery model is running" occurs.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.set_ResistanceOffset(System.String,System.Double)">
+			<summary>Sets and queries the resistance offset value in the battery simulation function. NOTE: This value cannot be changed when the simulation is in progress. If you modify this value without pausing the simulation, error 704, “Not permitted while battery model is running" occurs.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets and queries the resistance offset value in the battery simulation function. NOTE: This value cannot be changed when the simulation is in progress. If you modify this value without pausing the simulation, error 704, “Not permitted while battery model is running" occurs.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.CurrentLimit(System.String)">
+			<summary>Sets or queries the value of the current limit for stopping the discharging in the battery simulation function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_CurrentLimit(System.String)">
+			<summary>Sets or queries the value of the current limit for stopping the discharging in the battery simulation function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the value of the current limit for stopping the discharging in the battery simulation function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.set_CurrentLimit(System.String,System.Double)">
+			<summary>Sets or queries the value of the current limit for stopping the discharging in the battery simulation function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the value of the current limit for stopping the discharging in the battery simulation function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.OVPLimit(System.String)">
+			<summary>Sets or queries the terminal voltage protection value in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_OVPLimit(System.String)">
+			<summary>Sets or queries the terminal voltage protection value in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the terminal voltage protection value in the battery simulator function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.set_OVPLimit(System.String,System.Double)">
+			<summary>Sets or queries the terminal voltage protection value in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the terminal voltage protection value in the battery simulator function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.OCPLimit(System.String)">
+			<summary>Sets or queries the current protection value in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_OCPLimit(System.String)">
+			<summary>Sets or queries the current protection value in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the current protection value in the battery simulator function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.set_OCPLimit(System.String,System.Double)">
+			<summary>Sets or queries the current protection value in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the current protection value in the battery simulator function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.StateOfCharge(System.String)">
+			<summary>Sets or queries the SOC value in percentage for the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_StateOfCharge(System.String)">
+			<summary>Sets or queries the SOC value in percentage for the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the SOC value in percentage for the battery simulator function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.set_StateOfCharge(System.String,System.Double)">
+			<summary>Sets or queries the SOC value in percentage for the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the SOC value in percentage for the battery simulator function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.OpenCircuitVoltage(System.String)">
+			<summary>Sets or queries the Voc value for the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_OpenCircuitVoltage(System.String)">
+			<summary>Sets or queries the Voc value for the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the Voc value for the battery simulator function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.set_OpenCircuitVoltage(System.String,System.Double)">
+			<summary>Sets or queries the Voc value for the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the Voc value for the battery simulator function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.OpenCircuitVoltageFull(System.String)">
+			<summary>Sets or queries the threshold VOC value for the charging to stop in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_OpenCircuitVoltageFull(System.String)">
+			<summary>Sets or queries the threshold VOC value for the charging to stop in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the threshold VOC value for the charging to stop in the battery simulator function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.set_OpenCircuitVoltageFull(System.String,System.Double)">
+			<summary>Sets or queries the threshold VOC value for the charging to stop in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the threshold VOC value for the charging to stop in the battery simulator function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.OpenCircuitVoltageEmpty(System.String)">
+			<summary>Sets or queries the threshold Voc value for the discharging to stop in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_OpenCircuitVoltageEmpty(System.String)">
+			<summary>Sets or queries the threshold Voc value for the discharging to stop in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the threshold Voc value for the discharging to stop in the battery simulator function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.set_OpenCircuitVoltageEmpty(System.String,System.Double)">
+			<summary>Sets or queries the threshold Voc value for the discharging to stop in the battery simulator function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the threshold Voc value for the discharging to stop in the battery simulator function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.Resistance(System.String)">
+			<summary>Queries the real-time internal resistance of the battery simulator.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_Resistance(System.String)">
+			<summary>Queries the real-time internal resistance of the battery simulator.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Queries the real-time internal resistance of the battery simulator.</returns>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.Capacity(System.String)">
+			<summary>Queries the real-time battery capacity of the battery simulator.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_Capacity(System.String)">
+			<summary>Queries the real-time battery capacity of the battery simulator.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Queries the real-time battery capacity of the battery simulator.</returns>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.Current(System.String)">
+			<summary>Queries the real-time battery current of the battery simulator.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_Current(System.String)">
+			<summary>Queries the real-time battery current of the battery simulator.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Queries the real-time battery current of the battery simulator.</returns>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.TerminalVoltage(System.String)">
+			<summary>Queries the real-time terminal voltage.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatterySimulator.get_TerminalVoltage(System.String)">
+			<summary>Queries the real-time terminal voltage.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Queries the real-time terminal voltage.</returns>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTest">
+			<summary>IKeithley2280BatteryTest interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTest.Source">
+			<summary>Pointer to the IKeithley2280BatteryTestSource interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTest.Measure">
+			<summary>Pointer to the IKeithley2280BatteryTestMeasure interface.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource">
+			<summary>IKeithley2280BatteryTestSource interface.</summary>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.VoltageLevel(System.String)">
+			<summary>Sets or queries the V-set value for charging and discharging in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.get_VoltageLevel(System.String)">
+			<summary>Sets or queries the V-set value for charging and discharging in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the V-set value for charging and discharging in the battery test function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.set_VoltageLevel(System.String,System.Double)">
+			<summary>Sets or queries the V-set value for charging and discharging in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the V-set value for charging and discharging in the battery test function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.VoltageLimit(System.String)">
+			<summary>Sets or queries the maximum output voltage in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.get_VoltageLimit(System.String)">
+			<summary>Sets or queries the maximum output voltage in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the maximum output voltage in the battery test function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.set_VoltageLimit(System.String,System.Double)">
+			<summary>Sets or queries the maximum output voltage in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the maximum output voltage in the battery test function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.SourceCurrentLimit(System.String)">
+			<summary>Sets or queries the maximum source current in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.get_SourceCurrentLimit(System.String)">
+			<summary>Sets or queries the maximum source current in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the maximum source current in the battery test function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.set_SourceCurrentLimit(System.String,System.Double)">
+			<summary>Sets or queries the maximum source current in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the maximum source current in the battery test function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.DischargeCurrentLimit(System.String)">
+			<summary>Sets or queries the discharging current limit in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.get_DischargeCurrentLimit(System.String)">
+			<summary>Sets or queries the discharging current limit in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the discharging current limit in the battery test function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.set_DischargeCurrentLimit(System.String,System.Double)">
+			<summary>Sets or queries the discharging current limit in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the discharging current limit in the battery test function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.EndCurrent(System.String)">
+			<summary>Sets or queries the end current for stopping the charging and discharging in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.get_EndCurrent(System.String)">
+			<summary>Sets or queries the end current for stopping the charging and discharging in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the end current for stopping the charging and discharging in the battery test function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.set_EndCurrent(System.String,System.Double)">
+			<summary>Sets or queries the end current for stopping the charging and discharging in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the end current for stopping the charging and discharging in the battery test function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.OVPLimit(System.String)">
+			<summary>Sets or queries the protection threshold value of the open-circuit voltage in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.get_OVPLimit(System.String)">
+			<summary>Sets or queries the protection threshold value of the open-circuit voltage in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the protection threshold value of the open-circuit voltage in the battery test function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.set_OVPLimit(System.String,System.Double)">
+			<summary>Sets or queries the protection threshold value of the open-circuit voltage in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the protection threshold value of the open-circuit voltage in the battery test function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.OCPLimit(System.String)">
+			<summary>Sets or queries the protection threshold value of the output charge current in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.get_OCPLimit(System.String)">
+			<summary>Sets or queries the protection threshold value of the output charge current in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the protection threshold value of the output charge current in the battery test function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestSource.set_OCPLimit(System.String,System.Double)">
+			<summary>Sets or queries the protection threshold value of the output charge current in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the protection threshold value of the output charge current in the battery test function.</param>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure">
+			<summary>IKeithley2280BatteryTestMeasure interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.MeasureEVOC(System.String,System.Double@,System.Double@)">
+			<summary>The instrument starts a new measurement and returns the values of ESR and Voc. Output is off after the measurement.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="ESR">Return measured ESR value.</param>
+			<param name="Voc">Return measured Voc value.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.ConfigureAHMeasurement(System.String,System.Double,System.Double,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestMeasureESRIntervalEnum)">
+			<summary>Configures the A-H measuremnt settings.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="FullVoltage">Specifies the end voltage for charging.</param>
+			<param name="CurrentLimit">Specifies the maximum charging current during A-H measurement.</param>
+			<param name="ESRInterval">Specifies the ESR sample interval during A-H measurement.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.GenerateBatteryModel(System.String,System.Double,System.Double,System.Int32)">
+			<summary>Sets the range of the open-circuit voltage and generates a battery model during A-H measurement in the battery test.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="MinVoc">Specify the minimum Voc.</param>
+			<param name="MaxVoc">Specify the maximum Voc.</param>
+			<param name="ModelIndex">Specifies the model index(1-9).</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.SampleInterval(System.String)">
+			<summary>Sets or queries the sample interval in the battery test function. The sample interval is based on the power line cycles. Range: 8e-5 to 0.48s for 50 Hz ; 6.66667e-5 to 0.5s for 60 Hz.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.get_SampleInterval(System.String)">
+			<summary>Sets or queries the sample interval in the battery test function. The sample interval is based on the power line cycles. Range: 8e-5 to 0.48s for 50 Hz ; 6.66667e-5 to 0.5s for 60 Hz.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the sample interval in the battery test function. The sample interval is based on the power line cycles. Range: 8e-5 to 0.48s for 50 Hz ; 6.66667e-5 to 0.5s for 60 Hz.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.set_SampleInterval(System.String,System.Double)">
+			<summary>Sets or queries the sample interval in the battery test function. The sample interval is based on the power line cycles. Range: 8e-5 to 0.48s for 50 Hz ; 6.66667e-5 to 0.5s for 60 Hz.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the sample interval in the battery test function. The sample interval is based on the power line cycles. Range: 8e-5 to 0.48s for 50 Hz ; 6.66667e-5 to 0.5s for 60 Hz.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.ESRIntervalInAH(System.String)">
+			<summary>Sets and queries the ESR sample interval during A-H measurement in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.get_ESRIntervalInAH(System.String)">
+			<summary>Sets and queries the ESR sample interval during A-H measurement in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets and queries the ESR sample interval during A-H measurement in the battery test function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.set_ESRIntervalInAH(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestMeasureESRIntervalEnum)">
+			<summary>Sets and queries the ESR sample interval during A-H measurement in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets and queries the ESR sample interval during A-H measurement in the battery test function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.EVOCDelay(System.String)">
+			<summary>Sets or queries the ESR and Voc measurement delay in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.get_EVOCDelay(System.String)">
+			<summary>Sets or queries the ESR and Voc measurement delay in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the ESR and Voc measurement delay in the battery test function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.set_EVOCDelay(System.String,System.Double)">
+			<summary>Sets or queries the ESR and Voc measurement delay in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the ESR and Voc measurement delay in the battery test function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.Capacity(System.String)">
+			<summary>Returns the real-time value of the battery capacity during A-H measurement.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.get_Capacity(System.String)">
+			<summary>Returns the real-time value of the battery capacity during A-H measurement.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Returns the real-time value of the battery capacity during A-H measurement.</returns>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.FullVoltageInAH(System.String)">
+			<summary>Sets or queries the full voltage during A-H measurement in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.get_FullVoltageInAH(System.String)">
+			<summary>Sets or queries the full voltage during A-H measurement in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the full voltage during A-H measurement in the battery test function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.set_FullVoltageInAH(System.String,System.Double)">
+			<summary>Sets or queries the full voltage during A-H measurement in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the full voltage during A-H measurement in the battery test function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.CurrentLimitInAH(System.String)">
+			<summary>Sets or queries the maximum charging current during A-H measurement in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.get_CurrentLimitInAH(System.String)">
+			<summary>Sets or queries the maximum charging current during A-H measurement in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<returns>Sets or queries the maximum charging current during A-H measurement in the battery test function.</returns>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.set_CurrentLimitInAH(System.String,System.Double)">
+			<summary>Sets or queries the maximum charging current during A-H measurement in the battery test function.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets or queries the maximum charging current during A-H measurement in the battery test function.</param>
+		</member>
+		<member name="P:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.AHMeasurementState(System.String)">
+			<summary>Sets the state of the A-H measurement.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryTestMeasure.set_AHMeasurementState(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestAHMeasurementStateEnum)">
+			<summary>Sets the state of the A-H measurement.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="Val">Sets the state of the A-H measurement.</param>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryModel">
+			<summary>IKeithley2280BatteryModel interface.</summary>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryModel.CreateModel(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryModelTypeEnum,System.Int32,System.Double[]@,System.Double[]@,System.Double)">
+			<summary>Configures a list of custom values for a specified battery model based on selected battery model type(Fine/Coarse). NOTE: Coarse: sets 11 points of the values for a battery model in a rough form.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="ModelType">Specify the type of battery model(Fine/Coarse).</param>
+			<param name="ModelIndex">Specifies the model index(1-9).</param>
+			<param name="VocValues">Voc values.</param>
+			<param name="ResistanceValues">Resistance values.</param>
+			<param name="Capacity">Specify the capacity set value.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryModel.RecallByModelIndex(System.String,System.Int32)">
+			<summary>Recalls a selected indexed battery model from the memory.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="ModelIndex">Specifies the model index(1-9).</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryModel.RecallByBuildInModel(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryBuildInModelEnum)">
+			<summary>Recalls a selected battery build-In model from the memory .</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="BuildInModel">Specify the build-in model.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryModel.Save(System.String,System.Int32)">
+			<summary>Saves a battery model to the internal memory. Before saving, the instrument will verify the number of values in the battery model to be saved. If it is 101, the model will be saved. Otherwise, error 701, “Model length not enough,” is displayed. NOTE: If a model with the same name already exists, the newly saved one will replace the existing one.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="ModelIndex">Specifies the model index(1-9).</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryModel.SaveToUSB(System.String,System.Int32,System.String)">
+			<summary>Saves a battery model to a USB flash drive.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="ModelIndex">Specifies the model index(1-9).</param>
+			<param name="FileName">Specify the file name to save the battery model in USB.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryModel.LoadFromUSB(System.String,System.Int32,System.String)">
+			<summary>Imports a model from a USB flash drive to the internal memory.</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="ModelIndex">Specifies the model index(1-9).</param>
+			<param name="FileName">The name of the battery model in the USB flash drive.</param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryModel.EditModel(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryModelTypeEnum,System.Int32,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryModelElementEnum,System.Double[]@,System.Double)">
+			<summary>Edit the existing battery model based on selected battery model type(Fine/Coarse).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="ModelType">Specify the type of battery model(Fine/Coarse).</param>
+			<param name="ModelIndex">Specifies the model index(1-9).</param>
+			<param name="Element">Specify the element type in model.</param>
+			<param name="Values">Specify list of values to update existing model based on selected element(Voc/Resistance).</param>
+			<param name="Capacity"></param>
+		</member>
+		<member name="M:KeithleyInstruments.Keithley2280.Interop.IKeithley2280BatteryModel.QueryModel(System.String,KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryModelTypeEnum,System.Int32,System.Double[]@,System.Double[]@,System.Double@)">
+			<summary>Queries the list of custom values for a specified battery model based on selected battery model type(Fine/Coarse).</summary>
+			<param name="Channel">The physical or virtual repeated capability identifier.</param>
+			<param name="ModelType">Specify the type of battery model(Fine/Coarse).</param>
+			<param name="ModelIndex">Specifies the model index(1-9).</param>
+			<param name="VocValues">Return the list of Voc points from the selected model.</param>
+			<param name="ResistanceValues">Return the list of Resistance points from the selected model.</param>
+			<param name="Capacity"></param>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280CurrentLimitBehaviorEnum">
+			<summary>IviDCPwr class-compliant values for the CurrentLimitBehavior property in the Output interface.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280CurrentLimitBehaviorEnum.Keithley2280CurrentLimitRegulate">
+			<summary>The power supply restricts the output voltage such that the output current is not greater than the value of the Current Limit attribute.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280CurrentLimitBehaviorEnum.Keithley2280CurrentLimitTrip">
+			<summary>The power supply disables the output when the output current is equal to or greater than the value of the Current Limit attribute.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280RangeTypeEnum">
+			<summary>IviDCPwr class-compliant values for the RangeType parameter of the ConfigureRange method in the Output interface.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280RangeTypeEnum.Keithley2280RangeCurrent">
+			<summary>Current range is set by the Range parameter.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280RangeTypeEnum.Keithley2280RangeVoltage">
+			<summary>Voltage range is set by the Range parameter.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementTypeEnum">
+			<summary>IviDCPwr class-compliant values for the MeasurementType parameter of the Measure method in Output interface.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementTypeEnum.Keithley2280MeasurementCurrent">
+			<summary>Current is measured.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementTypeEnum.Keithley2280MeasurementVoltage">
+			<summary>Voltage is measured.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputStateEnum">
+			<summary>IviDCPwr class-compliant values for the OutputState parameter of the QueryState method in the Output interface.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputStateEnum.Keithley2280OutputConstantVoltage">
+			<summary>Return value indicates whether a constant voltage condition exists.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputStateEnum.Keithley2280OutputConstantCurrent">
+			<summary>Return value indicates whether a constant current condition exists.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputStateEnum.Keithley2280OutputOverVoltage">
+			<summary>Return value indicates whether an over-voltage condition exists.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputStateEnum.Keithley2280OutputOverCurrent">
+			<summary>Return value indicates whether an over-current condition exists.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputStateEnum.Keithley2280OutputUnregulated">
+			<summary>Return value indicates whether an unregulated condition exists.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputStateEnum.Keithley2280OutputOverTemperature">
+			<summary>Return value indicates whether an over-temperature condition exists.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputStateEnum.Keithley2280OutputSenseLeadsReverse">
+			<summary>Sense leads reverse.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280OutputStateEnum.Keithley2280OutputStateOff">
+			<summary>Off.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280TriggerSourceEnum">
+			<summary>IviDCPwr class-compliant values for the Source property in the Trigger interface.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280TriggerSourceEnum.Keithley2280TriggerSourceImmediate">
+			<summary>The power supply does not wait for a trigger before changing the output signal.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280TriggerSourceEnum.Keithley2280TriggerSourceExternal">
+			<summary>The power supply waits for an external trigger before changing the output signal.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280TriggerSourceEnum.Keithley2280TriggerSourceManual">
+			<summary>Manual triggering; the trigger signal is generated by pressing the TRIGGER key.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280TriggerSourceEnum.Keithley2280TriggerSourceBus">
+			<summary>Bus triggering.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280DisplayScreenEnum">
+			<summary>Specifies the display screen.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280DisplayScreenEnum.Keithley2280DisplayScreenDatasheet">
+			<summary>Data Sheet screen.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280DisplayScreenEnum.Keithley2280DisplayScreenGraph">
+			<summary>Graph screen.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280DisplayScreenEnum.Keithley2280DisplayScreenHome">
+			<summary>Home screen.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280ResolutionEnum">
+			<summary>Specifies the resolution.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280ResolutionEnum.Keithley2280Resolution4AndHalf">
+			<summary>4.5 digit resolution.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280ResolutionEnum.Keithley2280Resolution5AndHalf">
+			<summary>5.5 digit resolution.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280ResolutionEnum.Keithley2280Resolution6AndHalf">
+			<summary>6.5 digit resolution.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280ResolutionEnum.Keithley2280ResolutionMinimum">
+			<summary>Minimum(4.5) digit resolution.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280ResolutionEnum.Keithley2280ResolutionMaximum">
+			<summary>Maximum(6.5) digit resolution.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280ListMCompleteEnum">
+			<summary>Specifies the time when the instrument generates the measure complete signal.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280ListMCompleteEnum.Keithley2280ListMCompleteStep">
+			<summary>After each list step, the instrument will generate a measure complete pulse.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280ListMCompleteEnum.Keithley2280ListMCompleteSweep">
+			<summary>After each list cycle, the instrument will generate a measure complete pulse.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementFunctionEnum">
+			<summary>Specifies the measurement function.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementFunctionEnum.Keithley2280MeasurementFunctionConcurrent">
+			<summary>Concurrent.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementFunctionEnum.Keithley2280MeasurementFunctionCurrent">
+			<summary>Current.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementFunctionEnum.Keithley2280MeasurementFunctionVoltage">
+			<summary>Voltage.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280PowerLineFrequencyEnum">
+			<summary>Specifies the power line frequency.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280PowerLineFrequencyEnum.Keithley2280PowerLineFrequency50">
+			<summary>50Hz.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280PowerLineFrequencyEnum.Keithley2280PowerLineFrequency60">
+			<summary>60Hz.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFunctionEnum">
+			<summary>Specifies the measurement buffer function.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFunctionEnum.Keithley2280MeasureBufferFunctionCurrent">
+			<summary>Current.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFunctionEnum.Keithley2280MeasureBufferFunctionVoltage">
+			<summary>Voltage.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferTimeFormatEnum">
+			<summary>Specifies how date and time information from the buffer is saved in the file on the USB flash drive.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferTimeFormatEnum.Keithley2280MeasureBufferTimeFormatRelative">
+			<summary>Relative time stamps are saved.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferTimeFormatEnum.Keithley2280MeasureBufferTimeFormatRelativeTimeStamp">
+			<summary>RSTamp is saved.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferTimeFormatEnum.Keithley2280MeasureBufferTimeFormatTimeStamp">
+			<summary>Dates, times, and fractional seconds are saved.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFeedEnum">
+			<summary>Specifies the source of readings.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFeedEnum.Keithley2280MeasureBufferFeedCalculate">
+			<summary>Store readings after a Math operation (mX+b).</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFeedEnum.Keithley2280MeasureBufferFeedSense">
+			<summary>Store the readings before the math calculation.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFeedControlEnum">
+			<summary>Specifies the reading buffer fill control type.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFeedControlEnum.Keithley2280MeasureBufferFeedControlAlways">
+			<summary>Fill continuous.After the specified number of readings are stored, operation wraps back to the first buffer location and overwrites the previous readings.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFeedControlEnum.Keithley2280MeasureBufferFeedControlNever">
+			<summary>No measurements to fill the buffer.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureBufferFeedControlEnum.Keithley2280MeasureBufferFeedControlNext">
+			<summary>Fill once.After the specified number of readings (buffer size) are stored, buffer operation is disabled.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum">
+			<summary>Specifies the format element type(buffer elements).</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum.Keithley2280FormatElementTypeReading">
+			<summary>The measurement reading based on the measurement function.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum.Keithley2280FormatElementTypeSource">
+			<summary>The source value.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum.Keithley2280FormatElementTypeUnit">
+			<summary>The unit for measurement reading, source value, timestamp and reading number.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum.Keithley2280FormatElementTypeMode">
+			<summary>The output state.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum.Keithley2280FormatElementTypeDate">
+			<summary>The date when the data point was measured.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum.Keithley2280FormatElementTypeTime">
+			<summary>The time when the data point was measured.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum.Keithley2280FormatElementTypeTimestamp">
+			<summary>The timestamp when the data point was measured.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum.Keithley2280FormatElementTypeRelative">
+			<summary>The relative time when the data point was measured.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum.Keithley2280FormatElementTypeRelativeTimestamp">
+			<summary>The relative time when the data point was measured.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280FormatElementTypeEnum.Keithley2280FormatElementTypeReadingNumber">
+			<summary>The reading number indicates the point index in the trace buffer.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280ApertureTimeUnitsEnum">
+			<summary>Specifies the aperture time units.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280ApertureTimeUnitsEnum.Keithley2280ApertureTimeUnitsPLCs">
+			<summary>Power Line Cycles.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280ApertureTimeUnitsEnum.Keithley2280ApertureTimeUnitsSeconds">
+			<summary>Seconds.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureAverageFilterTypeEnum">
+			<summary>Specifies the average filter type to use when filtering is enabled.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureAverageFilterTypeEnum.Keithley2280MeasureAverageFilterTypeMoving">
+			<summary>Moving filter.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureMathFunctionEnum">
+			<summary>Specifies the measurement math function.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasureMathFunctionEnum.Keithley2280MeasureMathFunctionMXB">
+			<summary>MXB math operation.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280DigitalIOFunctionEnum">
+			<summary>Specifies the Digital IO function type.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280DigitalIOFunctionEnum.Keithley2280DigitalIOFunctionAuto">
+			<summary>Automatically specify the pin state.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280DigitalIOFunctionEnum.Keithley2280DigitalIOFunctionManualOutputHigh">
+			<summary>Outputs a high TTL-compatible pulse to the specified line.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280DigitalIOFunctionEnum.Keithley2280DigitalIOFunctionManualOutputLow">
+			<summary>Outputs a low TTL-compatible pulse to the specified line.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280DigitalIOFunctionEnum.Keithley2280DigitalIOFunctionManualInput">
+			<summary>Configures the specified line as an input.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementRangeTypeEnum">
+			<summary>Specifies the range type for measurement function.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementRangeTypeEnum.Keithley2280MeasurementRangeTypeAuto">
+			<summary>Auto range.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280MeasurementRangeTypeEnum.Keithley2280MeasurementRangeTypeManual">
+			<summary>Manual range.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280SystemOperationModeEnum">
+			<summary>Specifies the instrument operation mode.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280SystemOperationModeEnum.Keithley2280SystemOperationModePowerSupply">
+			<summary>Set the instrument to work in the PowerSupply function.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280SystemOperationModeEnum.Keithley2280SystemOperationModeBatteryTest">
+			<summary>Set the instrument to work in the Battery Test function.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280SystemOperationModeEnum.Keithley2280SystemOperationModeBatterySimulator">
+			<summary>Set the instrument to work in the Battery Simulator function.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280SystemOperationModeEnum.Keithley2280SystemOperationModeEntry">
+			<summary>Set the instrument to startup screen.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryOutputStateEnum">
+			<summary>Specifies the state of the instrument battery output.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryOutputStateEnum.Keithley2280BatteryOutputStateOff">
+			<summary>Turn source off.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryOutputStateEnum.Keithley2280BatteryOutputStateOn">
+			<summary>Turn source on.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryOutputProtectionTypeEnum">
+			<summary>Specifies the battery output protection type.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryOutputProtectionTypeEnum.Keithley2280BatteryOutputOverCurrentProtection">
+			<summary>Over current protection occurred.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryOutputProtectionTypeEnum.Keithley2280BatteryOutputOverVoltageProtection">
+			<summary>Over voltage protection occurred.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryOutputProtectionTypeEnum.Keithley2280BatteryOutputOverTemperatureProtection">
+			<summary>Over temperature protection occurred.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryOutputProtectionTypeEnum.Keithley2280BatteryOutputReverseSenseFaultDetected">
+			<summary>Reverse sense fault detected.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryOutputProtectionTypeEnum.Keithley2280BatteryOutputOpenSenseErrorProtection">
+			<summary>Open sense error protection occurred.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryOutputProtectionTypeEnum.Keithley2280BatteryOutputProtectionNone">
+			<summary>Nothing occurred.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatterySimulationModeEnum">
+			<summary>Specifies the battery simulation mode.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatterySimulationModeEnum.Keithley2280BatterySimulationModeDynamic">
+			<summary>The Voc and SOC of the simulated battery change based on the charging and discharging, like a real battery.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatterySimulationModeEnum.Keithley2280BatterySimulationModeStatic">
+			<summary>Constant output, the Voc and SOC of the simulated battery stays the same.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestMeasureESRIntervalEnum">
+			<summary>Specifies the ESR sample interval during A-H measurement.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestMeasureESRIntervalEnum.Keithley2280BatteryTestMeasureESRInterval10Sec">
+			<summary>10 seconds.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestMeasureESRIntervalEnum.Keithley2280BatteryTestMeasureESRInterval30Sec">
+			<summary>30 seconds.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestMeasureESRIntervalEnum.Keithley2280BatteryTestMeasureESRInterval60Sec">
+			<summary>60 seconds.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestMeasureESRIntervalEnum.Keithley2280BatteryTestMeasureESRInterval120Sec">
+			<summary>120 seconds.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestMeasureESRIntervalEnum.Keithley2280BatteryTestMeasureESRInterval10Min">
+			<summary>10 minutes.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestAHMeasurementStateEnum">
+			<summary>Specifies the state of A-H measurement.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestAHMeasurementStateEnum.Keithley2280BatteryTestAHMeasurementStateStart">
+			<summary>Starts the A-H measurement.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestAHMeasurementStateEnum.Keithley2280BatteryTestAHMeasurementStateStop">
+			<summary>Stops the A-H measurement.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestAHMeasurementStateEnum.Keithley2280BatteryTestAHMeasurementStatePause">
+			<summary>Pause the A-H measurement.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryTestAHMeasurementStateEnum.Keithley2280BatteryTestAHMeasurementStateContinue">
+			<summary>Continue the A-H measurement.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryModelTypeEnum">
+			<summary>Specifies the type of battery model.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryModelTypeEnum.Keithley2280BatteryModelTypeFine">
+			<summary>Specifies the fine battery model.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryModelTypeEnum.Keithley2280BatteryModelTypeCoarse">
+			<summary>Specifies the coarse(rough form i.e. 11 points of the value for a battery model) battery model.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryBuildInModelEnum">
+			<summary>Specifies the battery build in model.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryBuildInModelEnum.Keithley2280BuildInModel4Point2VoltsLithiumIonBattery">
+			<summary>Specifies the 4.2V Lithium-ion battery.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryBuildInModelEnum.Keithley2280BuildInModel1Point2VoltsNickelMetalHydrideBattery">
+			<summary>Specifies the 1.2V Nickel-metal hydride battery.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryBuildInModelEnum.Keithley2280BuildInModel1Point2VoltsNickelCadmiumBattery">
+			<summary>Specifies the 1.2V Nickel-cadmium battery.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryBuildInModelEnum.Keithley2280BuildInModelLeadAcidBattery">
+			<summary>Specifies the Lead-acid battery.</summary>
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryBuildInModelEnum.Keithley2280BuildInModel12VoltsNickelMetalHydrideBattery">
+			<summary>Specifies the 12V Nickel-metal hydride battery.</summary>
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryConfigureSimulatorValidParamTypeEnum">
+			<summary />
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryConfigureSimulatorValidParamTypeEnum.Keithley2280BatteryConfigureSimulatorValidSOC">
+			<summary />
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryConfigureSimulatorValidParamTypeEnum.Keithley2280BatteryConfigureSimulatorValidVOC">
+			<summary />
+		</member>
+		<member name="T:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryModelElementEnum">
+			<summary />
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryModelElementEnum.Keithley2280BatteryModelElementOpenCircuitVoltage">
+			<summary />
+		</member>
+		<member name="F:KeithleyInstruments.Keithley2280.Interop.Keithley2280BatteryModelElementEnum.Keithley2280BatteryModelElementResistance">
+			<summary />
+		</member>
+	</members>
+</doc>

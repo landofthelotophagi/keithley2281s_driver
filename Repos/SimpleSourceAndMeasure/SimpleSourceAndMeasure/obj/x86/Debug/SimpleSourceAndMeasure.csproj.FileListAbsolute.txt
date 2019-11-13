@@ -1,0 +1,26 @@
+C:\Program Files (x86)\IVI Foundation\IVI\Drivers\ke2280\Examples\CSharpAppKeithley2280\SimpleSourceAndMeasure\SimpleSourceAndMeasure\bin\Debug\SimpleSourceAndMeasure.exe
+C:\Program Files (x86)\IVI Foundation\IVI\Drivers\ke2280\Examples\CSharpAppKeithley2280\SimpleSourceAndMeasure\SimpleSourceAndMeasure\bin\Debug\SimpleSourceAndMeasure.pdb
+C:\Program Files (x86)\IVI Foundation\IVI\Drivers\ke2280\Examples\CSharpAppKeithley2280\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.csprojAssemblyReference.cache
+C:\Program Files (x86)\IVI Foundation\IVI\Drivers\ke2280\Examples\CSharpAppKeithley2280\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.csproj.ResolveComReference.cache
+C:\Program Files (x86)\IVI Foundation\IVI\Drivers\ke2280\Examples\CSharpAppKeithley2280\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.Form1.resources
+C:\Program Files (x86)\IVI Foundation\IVI\Drivers\ke2280\Examples\CSharpAppKeithley2280\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.Properties.Resources.resources
+C:\Program Files (x86)\IVI Foundation\IVI\Drivers\ke2280\Examples\CSharpAppKeithley2280\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.csproj.GenerateResource.cache
+C:\Program Files (x86)\IVI Foundation\IVI\Drivers\ke2280\Examples\CSharpAppKeithley2280\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\IVI Foundation\IVI\Drivers\ke2280\Examples\CSharpAppKeithley2280\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.exe
+C:\Program Files (x86)\IVI Foundation\IVI\Drivers\ke2280\Examples\CSharpAppKeithley2280\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.pdb
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\bin\Debug\SimpleSourceAndMeasure.exe
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\bin\Debug\SimpleSourceAndMeasure.pdb
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.csprojAssemblyReference.cache
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.csproj.ResolveComReference.cache
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.Form1.resources
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.Properties.Resources.resources
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.csproj.GenerateResource.cache
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.csproj.CoreCompileInputs.cache
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.exe
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.pdb
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.Form2.resources
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.Form3.resources
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.Form4.resources
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.Form5.resources
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.Form6.resources
+C:\Users\prakHW\Source\Repos\SimpleSourceAndMeasure\SimpleSourceAndMeasure\obj\x86\Debug\SimpleSourceAndMeasure.InitialForm.resources
